@@ -44,7 +44,7 @@ button {
   font-size: calc(10px + 2vmin);
 }
 
-.Pokemons {
+/* .Pokemons {
   display: flex;
   gap: 32px;
   border-radius: 50px;
@@ -55,4 +55,4 @@ button {
 
 .Pokemon {
   height: calc(10px + 10vmin);
-}
+} */
