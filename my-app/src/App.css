@@ -1,6 +1,22 @@
-.App {
+@font-face {
+  font-family: 'Luam';
+  src: local('Luam'), url(./assets/fonts/Luam-Regular.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Luam';
+    font-weight: bold;
+    src: local('Luam'), url(./assets/fonts/Luam-Bold.otf) format('opentype');
+}
+
+* {
+  font-family: Luam, sans-serif;
+  color: #724120;
+}
+
+.app {
   text-align: center;
-  background-image: linear-gradient(#B8D4CA, #F3DCC3, #dbb67b);
+  background-image: linear-gradient(#d3c9b8, #debda5, #e4b69a);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -10,49 +26,54 @@
   color: #573c20;
 }
 
-.Palette {
-  height: 60%;
-  width: 60%;
-  filter: drop-shadow(0px 0px 30px rgba(0, 0, 0, 0.2));
+.palette {
+  height: 90vh;
+  width: 90vw;
+  position: relative;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.palette, .uploaded-image img {
+  filter: drop-shadow(0px 15px 20px rgba(50, 88, 130, 0.2));
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.uploaded-image img {
+  border-radius: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
-.App-link {
-  color: #61dafb;
+.uploader {
+  height: 10%;
+  width: 10%;
+  position: absolute;
+  left: 40%;
+  top: 50%;
+  z-index: 2;
 }
 
-button {
-  font-size: calc(10px + 2vmin);
+.uploaded-image {
+  height: 40%;
+  width: 30%;
+  position: absolute;
+  right: 100px;
+  bottom: 100px;
+  z-index: 1;
 }
 
-/* .Pokemons {
-  display: flex;
-  gap: 32px;
-  border-radius: 50px;
-  padding: 30px;
-  background: #F9ECCE;
-  box-shadow: 20px 20px 60px #20242a, -20px -20px 60px #30343e;
+.uploaded-image img {
+  max-height: 100%;
+  max-width: 100%;
 }
 
-.Pokemon {
-  height: calc(10px + 10vmin);
-} */
+.credit {
+  font-weight: bolder;
+  text-shadow: 1px 0;
+  letter-spacing:1px;
+  text-decoration: none;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  z-index: 2;
+}
