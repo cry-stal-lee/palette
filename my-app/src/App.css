@@ -56,8 +56,8 @@
   height: 40%;
   width: 30%;
   position: absolute;
-  right: 100px;
-  bottom: 100px;
+  right: 10vw;
+  bottom: 10vh;
   z-index: 1;
 }
 
