@@ -11,7 +11,6 @@
 
 * {
   font-family: Luam, sans-serif;
-  transition: 0.8s;
 }
 
 .app {
@@ -59,6 +58,7 @@
   right: 10vw;
   bottom: 10vh;
   z-index: 1;
+  transition: 0.5s;
 }
 
 .uploaded-image img {
@@ -77,48 +77,5 @@
   left: 50px;
   z-index: 2;
   color: inherit;
-}
-
-.color {
-  height: 12vh;
-  width: 12vh;
-  max-height: 10vmax;
-  max-width: 10vmax;
-  min-height: 10vmin;
-  min-width: 10vmin;
-  border-radius: 50%;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.color-1 {
-  position: absolute;
-  left: 46vw;
-  top: 15vh;
-}
-
-.color-2 {
-  position: absolute;
-  left: 33vw;
-  top: 13vh;
-}
-
-.color-3 {
-  position: absolute;
-  left: 24vw;
-  top: 31vh;
-}
-
-.color-4 {
-  position: absolute;
-  left: 25vw;
-  top: 53vh;
-}
-
-.color-5 {
-  position: absolute;
-  left: 35vw;
-  top: 65vh;
+  transition: 0.5s;
 }
