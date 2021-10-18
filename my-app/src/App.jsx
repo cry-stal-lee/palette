@@ -14,6 +14,41 @@ export default function App(props) {
   const { colors } = useImageColor(selectedFile, { cors: true, colors: 5 });
   let [backgroundColors, setBackgroundColors] = useState(['#d3c9b8', '#debda5', '#e4b69a', '#956c52']);
 
+  let [offsetX, setOffsetX] = useState(() => '');
+  let [offsetY, setOffsetY] = useState(() => '');
+  let [friction, setFriction] = useState(() => 1/32);
+
+  const init = () => {
+    setOffsetX('');
+    setOffsetY('');
+    setFriction(1/32);
+  }
+
+  useEffect(() => {
+    document.addEventListener('mousemove', _mouseMove);
+    return () => {
+      docuument.removeEventListener('mousemove', _mouseMove);
+    }
+  }, []);
+
+  const _mouseMove = (e) => {
+    let followX = (window.innerWidth / 2 - e.clientX);
+    let followY = (window.innerHeight / 2 - e.clientY);
+
+    let x = 0,
+        y = 0;
+    x +=( (-followX - x) * friction);
+    y += (followY - y) * friction;
+    setOffsetX(x);
+    setOffsetY(y);
+  };
+
+  let offset = {
+    transform: `translate(-50%, -50%) perspective(600px)
+    rotateY(${offsetX}deg)
+    rotateX(${offsetY}deg)`
+  };
+
   useEffect(() => {
     setCurrentPalette(colors);
     if (colors) {
@@ -39,12 +74,12 @@ export default function App(props) {
     setCurrentPalette([]);
     setBackgroundColors(['#d3c9b8', '#debda5', '#e4b69a']);
   }
-
+  
   return (
     <>
     <div className="app" style={{ backgroundImage: `linear-gradient(${backgroundColors[0]}, ${backgroundColors[1]}, ${backgroundColors[2]})`, color: backgroundColors[3] }}> 
       <a className="credit" href="http://crystallee.dev">crystal lee</a>
-      <div style={{ display: 'flex', justifyContent: 'center', width: '100%', height: '100%', }}>
+      <div className="wrapper" style={offset}>
         <div className="palette" style={{ backgroundImage: `url(${paletteSvg})` }}>
           <div className="uploader">
             <input type="file" accept="image/*" multiple={false} onChange={handleUpload} onClick={e => e.target.value = null} />
