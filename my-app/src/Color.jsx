@@ -29,7 +29,6 @@ export default function Color({ currentPalette, index }) {
     <div className={`color color-${index}`} style={{ backgroundColor: currentPalette[index] }}
     onMouseEnter={handleHover} onMouseLeave={() => setShow(false)}>
         { show ? <div className="hexcode tooltiptext" style={{ color: pickTextColorBasedOnBgColor(currentPalette[index]) }}>{currentPalette[index]}
-        <br />
         <div className="tooltip"><FiCopy className="pointer" onClick={handleCopy} />
           { copied ? <span className="tooltiptext">Copied!</span> : <span className="tooltiptext">Copy HEX</span>}
         </div>

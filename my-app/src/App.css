@@ -89,6 +89,10 @@
 .hexcode {
   font-size: 1vw;
   transition: 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
   
 .color-0 {
