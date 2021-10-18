@@ -44,9 +44,9 @@ export default function App(props) {
   };
 
   let offset = {
-    transform: `translate(-50%, -50%) perspective(600px)
-    rotateY(${offsetX}deg)
-    rotateX(${offsetY}deg)`
+    transform: `translate(-50%, -50%) perspective(1750px)
+    rotateY(${offsetX/2}deg)
+    rotateX(${offsetY/2}deg)`
   };
 
   useEffect(() => {

@@ -24,12 +24,12 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  transform: translate(-50%, -50%) perspective(600px) rotateY(20deg) rotateX(10deg);
+  /* transform: translate(-50%, -50%) perspective(600px) rotateY(20deg) rotateX(10deg); */
   transform-style: preserve-3d;
 }
 
 .wrapper .uploaded-image {
-  transform: translateZ(80px) translateX(-27px) translateY(-26px) scale(0.8);
+  transform: translateZ(80px) scale(0.8);
 }
 
 .palette {
