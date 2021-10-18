@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import useImageColor from 'use-image-color';
-
-import { FiCopy } from 'react-icons/Fi';
-
 import axios from 'axios';
 
 import "./App.css";
 
-import paletteSvg from '../assets/palette.svg';
+import paletteSvg from './assets/palette.svg';
 
 import Color from './Color.jsx';
 
-export default function App() {
+export default function App(props) {
   let [selectedFile, setSelectedFile] = useState(() => "");
   let [currentPalette, setCurrentPalette] = useState(() => []);
   const { colors } = useImageColor(selectedFile, { cors: true, colors: 5 });
@@ -47,17 +44,19 @@ export default function App() {
     <>
     <div className="app" style={{ backgroundImage: `linear-gradient(${backgroundColors[0]}, ${backgroundColors[1]}, ${backgroundColors[2]})`, color: backgroundColors[3] }}> 
       <a className="credit" href="http://crystallee.dev">crystal lee</a>
-      <div className="palette" style={{ backgroundImage: `url(${paletteSvg})` }}>
-        <div className="uploader">
-          <input type="file" accept="image/*" multiple={false} onChange={handleUpload} onClick={e => e.target.value = null} />
-          <button onClick={handleClean}>clean palette</button>
+      <div style={{ display: 'flex', justifyContent: 'center', width: '100%', height: '100%', }}>
+        <div className="palette" style={{ backgroundImage: `url(${paletteSvg})` }}>
+          <div className="uploader">
+            <input type="file" accept="image/*" multiple={false} onChange={handleUpload} onClick={e => e.target.value = null} />
+            <button onClick={handleClean}>clean palette</button>
+          </div>
+          { currentPalette ? currentPalette.map((color, index) => (
+            <Color key={index} index={index} currentPalette={currentPalette} />
+          )) : null }
         </div>
-        { currentPalette ? currentPalette.map((color, index) => (
-          <Color index={index} currentPalette={currentPalette} />
-        )) : null }
-      </div>
-      <div className="uploaded-image">
-        <img src={ selectedFile }/>
+        <div className="uploaded-image">
+          <img src={ selectedFile }/>
+        </div>
       </div>
     </div>
   </>);

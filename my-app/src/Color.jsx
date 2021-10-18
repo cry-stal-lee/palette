@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { FiCopy } from 'react-icons/Fi';
-import "./Color.css";
+import "./App.css";
 
 export default function Color({ currentPalette, index }) {
   const [show, setShow] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const pickTextColorBasedOnBgColor = (bgColor) => {
     var color = (bgColor.charAt(0) === '#') ? bgColor.substring(1, 7) : bgColor;
@@ -14,12 +15,25 @@ export default function Color({ currentPalette, index }) {
       '#000000' : '#FFFFFF';
   }
 
+  const handleHover = () => {
+    setShow(true);
+    setCopied(false);
+  }
+
+  const handleCopy = e => {
+    navigator.clipboard.writeText(currentPalette[index]);
+    setCopied(true);
+  }
+
   return (
     <div className={`color color-${index}`} style={{ backgroundColor: currentPalette[index] }}
-    onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)}>
-        { show ? <div className="hexcode" style={{ color: pickTextColorBasedOnBgColor(currentPalette[index]) }}>{currentPalette[index]}
+    onMouseEnter={handleHover} onMouseLeave={() => setShow(false)}>
+        { show ? <div className="hexcode tooltiptext" style={{ color: pickTextColorBasedOnBgColor(currentPalette[index]) }}>{currentPalette[index]}
         <br />
-        <FiCopy onClick={() => {navigator.clipboard.writeText(currentPalette[index])}} /></div>
+        <div className="tooltip"><FiCopy className="pointer" onClick={handleCopy} />
+          { copied ? <span className="tooltiptext">Copied!</span> : <span className="tooltiptext">Copy HEX</span>}
+        </div>
+        </div>
         : null }
     </div>
   );

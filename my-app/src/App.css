@@ -1,22 +1,15 @@
-@font-face {
-  font-family: 'Luam';
-  src: local('Luam'), url(./assets/fonts/Luam-Regular.otf) format('opentype');
-}
-
-@font-face {
-    font-family: 'Luam';
-    font-weight: bold;
-    src: local('Luam'), url(./assets/fonts/Luam-Bold.otf) format('opentype');
-}
-
 * {
-  font-family: Luam, sans-serif;
+  font-family: Arial, sans-serif;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .app {
-  text-align: center;
   background-image: linear-gradient(#d3c9b8, #debda5, #e4b69a);
-  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,10 +29,7 @@
 
 .palette, .uploaded-image img {
   filter: drop-shadow(0px 15px 20px rgba(50, 88, 130, 0.2));
-}
-
-.uploaded-image img {
-  border-radius: 10px;
+  
 }
 
 .uploader {
@@ -64,6 +54,7 @@
 .uploaded-image img {
   max-height: 100%;
   max-width: 100%;
+  border-radius: 10px;
 }
 
 .credit {
@@ -79,3 +70,98 @@
   color: inherit;
   transition: 0.5s;
 }
+
+.color {
+  height: 12vh;
+  width: 12vh;
+  max-height: 10vmax;
+  max-width: 10vmax;
+  min-height: 10vmin;
+  min-width: 10vmin;
+  border-radius: 50%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s;
+}
+
+.hexcode {
+  font-size: 1vw;
+  transition: 0.5s;
+}
+  
+.color-0 {
+  position: absolute;
+  left: 46vw;
+  top: 15vh;
+}
+
+.color-1 {
+  position: absolute;
+  left: 33vw;
+  top: 13vh;
+}
+
+.color-2 {
+  position: absolute;
+  left: 24vw;
+  top: 31vh;
+}
+
+.color-3 {
+  position: absolute;
+  left: 25vw;
+  top: 53vh;
+}
+
+.color-4 {
+  position: absolute;
+  left: 35vw;
+  top: 65vh;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  font-size: 0.8vw;
+}
+
+.tooltip .tooltiptext {
+  width: 120px;
+
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+
+  top: 150%;
+  left: 50%;
+  margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+  
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;  /* At the top of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  opacity: 1;
+}
+
+/* parallax */
+ 

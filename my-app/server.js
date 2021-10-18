@@ -9,7 +9,7 @@ app.use(express.json());
 
 let storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'dist/uploads')
+    cb(null, 'src/uploads')
   },
   filename: function(req, file, cb) {
     cb(null, Date.now() + '-' +file.originalname)
@@ -23,9 +23,10 @@ app.post('/upload', (req, res) => {
     if (err instanceof multer.MulterError) {
       res.status(500).send(err);
     } else if (err) {
-      res.status(500).send(err);
-    } 
-    res.status(200).send(req.file.path);
+      res.status(418).send(err);
+    } else {
+      res.status(200).send(req.file.path);
+    }
   })
 })
 
