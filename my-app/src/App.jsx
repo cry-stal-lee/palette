@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, createRef } from 'react';
 import useImageColor from 'use-image-color';
 import axios from 'axios';
 
@@ -18,6 +18,8 @@ export default function App(props) {
   let [offsetY, setOffsetY] = useState(() => '');
   let [friction, setFriction] = useState(() => 1/32);
 
+  let uploadButton = createRef();
+
   const init = () => {
     setOffsetX('');
     setOffsetY('');
@@ -27,7 +29,7 @@ export default function App(props) {
   useEffect(() => {
     document.addEventListener('mousemove', _mouseMove);
     return () => {
-      docuument.removeEventListener('mousemove', _mouseMove);
+      document.removeEventListener('mousemove', _mouseMove);
     }
   }, []);
 
@@ -76,13 +78,14 @@ export default function App(props) {
   }
   
   return (
-    <>
     <div className="app" style={{ backgroundImage: `linear-gradient(${backgroundColors[0]}, ${backgroundColors[1]}, ${backgroundColors[2]})`, color: backgroundColors[3] }}> 
       <a className="credit" href="http://crystallee.dev">crystal lee</a>
       <div className="wrapper" style={offset}>
         <div className="palette" style={{ backgroundImage: `url(${paletteSvg})` }}>
           <div className="uploader">
-            <input type="file" accept="image/*" multiple={false} onChange={handleUpload} onClick={e => e.target.value = null} />
+            <input ref={uploadButton} type="file" accept="image/*" multiple={false} onChange={handleUpload} onClick={e => e.target.value = null} />
+            <button onClick={() => uploadButton.current.click()}>Upload File</button>
+            <br />
             <button onClick={handleClean}>clean palette</button>
           </div>
           { currentPalette ? currentPalette.map((color, index) => (
@@ -93,6 +96,5 @@ export default function App(props) {
           <img src={ selectedFile }/>
         </div>
       </div>
-    </div>
-  </>);
+    </div>);
 }
