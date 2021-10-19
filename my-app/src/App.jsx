@@ -84,16 +84,21 @@ export default function App(props) {
         <div className="palette" style={{ backgroundImage: `url(${paletteSvg})` }}>
           <div className="uploader">
             <input ref={uploadButton} type="file" accept="image/*" multiple={false} onChange={handleUpload} onClick={e => e.target.value = null} />
-            <button onClick={() => uploadButton.current.click()}>Upload File</button>
+            <button onClick={() => uploadButton.current.click()}>upload file</button>
             <br />
-            <button onClick={handleClean}>clean palette</button>
+            { selectedFile ? <button className="clean-palette" onClick={handleClean} style={{ opacity: 1 }}>clean palette</button> : <button className="clean-palette" onClick={handleClean} style={{ opacity: 0 }}>clean palette</button>}
           </div>
           { currentPalette ? currentPalette.map((color, index) => (
             <Color key={index} index={index} currentPalette={currentPalette} />
           )) : null }
         </div>
-        <div className="uploaded-image">
-          <img src={ selectedFile }/>
+        <div>
+          <div className="uploaded-image">
+            <img src={ selectedFile }/>
+          </div>
+          <div className="uploaded-image reflection">
+            <img src={ selectedFile }/>
+          </div>
         </div>
       </div>
     </div>);

@@ -112,6 +112,11 @@ button:active::before {
   box-shadow: 0 0 0 2px, 0 0.25em 0 0;
 }
 
+.clean-palette {
+  opacity: 0;
+  transition: none;
+}
+
 .uploaded-image {
   height: 40%;
   width: 30%;
@@ -126,6 +131,13 @@ button:active::before {
   max-height: 100%;
   max-width: 100%;
   border-radius: 10px;
+}
+
+.reflection {
+  bottom: 8vh;
+  filter: blur(10px);
+  z-index: -1;
+  opacity: 0.4;
 }
 
 .credit {
