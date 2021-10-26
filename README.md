@@ -13,12 +13,24 @@ Watch the demo [here]().
 - All uploaded images are saved to the file system
 - Palette can be cleared via the 'clean palette' button
 
+## Installation
+```
+git clone https://github.com/cry-stal-lee/palette.git
+cd my-app
+yarn
+yarn run server
+yarn run build
+yarn run serve
+open http://localhost:3000 in your browser
+```
+
 ## Technologies
 - React
 - Node/Express
 - Vite
 - Multer
 - Procreate
+- Yarn
 
 ## Licensing
 Copyright © 2021 Crystal Lee
