@@ -15,23 +15,20 @@ Watch the demo [here]().
 
 ## Installation
 ```
-$ git clone https://github.com/cry-stal-lee/palette.git
-$ cd my-app
-
 # install dependencies
-$ yarn
+yarn
 
 # launch server
-$ yarn run server
+yarn run server
 
 # bundle files
-$ yarn run build
+yarn run build
 
 # serve files
-$ yarn run serve
+yarn run serve
 
 # open client
-$ open http://localhost:3000
+open http://localhost:3000
 ```
 
 ## Technologies
