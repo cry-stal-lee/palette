@@ -3,10 +3,6 @@
 
 *PALETTE* is a web app that extracts a maximum of five colors from user uploaded image files, including GIFs. Multer middleware is used for handling multipart/form-data.
 
-Topics
-Resources
-
-
 Watch the demo [here]().
 
 ## Features
