@@ -14,20 +14,18 @@ Watch the demo [here]().
 - Palette can be cleared via the 'clean palette' button
 
 ## Installation
+- Install dependencies with [yarn](https://yarnpkg.com/)
 ```
-# install dependencies
 yarn
-
-# launch server
+```
+- Bundle files and run Express server and [Vite](https://vitejs.dev/) server
+```
 yarn run server
-
-# bundle files
 yarn run build
-
-# serve files
 yarn run serve
-
-# open client
+```
+- Open client
+```
 open http://localhost:3000
 ```
 
