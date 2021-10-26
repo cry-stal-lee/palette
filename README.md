@@ -16,6 +16,7 @@ Watch the demo [here]().
 ## Installation
 ```
 # install dependencies
+cd my-app
 yarn
 
 # launch server
